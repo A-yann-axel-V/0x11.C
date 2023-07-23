@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 int get_precision(char *format, int *k)
 {
     int precision = 0;
