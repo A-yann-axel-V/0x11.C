@@ -13,43 +13,48 @@
 int print_address(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
-	uintptr_t ptr = (uintptr_t)va_arg(ap, void *);
-	uintptr_t temp = ptr;
-	int num_digits = 0, chars_printed = 0, total_chars, i, digit;
-	char *buffer;
+	void *ptr = va_arg(ap, void *);
 
 	UNUSED(format);
 	UNUSED(index);
+
+	return (write_pointer(ptr, precision, size));
+}
+
+/**
+ * write_pointer - Print the memory address.
+ * @ptr: The pointer whose address needs to be printed.
+ * @precision: The minimum number of characters to be printed.
+ * @size: The total number of characters needed for the output.
+ *
+ * Return: The total number of characters printed.
+ */
+int write_pointer(void *ptr, int precision, int size)
+{
+	char buffer[sizeof(void *) * 2 + 3];
+	unsigned long address = (unsigned long)ptr;
+	int i = sizeof(void *) * 2 + 2;
+	int chars_printed = 0;
+
+	UNUSED(precision);
 	UNUSED(size);
-	buffer = malloc(sizeof(char) * (num_digits + 1));
-	if (buffer == NULL)
-		return (-1);
 
-	chars_printed += _putchar('0');
-	chars_printed += _putchar('x');
-
-	while (temp > 0)
+	buffer[i] = '\0';
+	while (i > 1)
 	{
-		temp /= 16;
-		num_digits++;
+		i--;
+		buffer[i] = "0123456789abcdef"[address & 0xF];
+		address >>= 4;
 	}
 
-	if (ptr == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-	buffer[num_digits] = '\0';
-	for (i = num_digits - 1; i >= 0; i--)
-	{
-		digit = ptr % 16;
-		buffer[i] = (digit < 10) ? ('0' + digit) : ('a' + digit - 10);
-		ptr /= 16;
-	}
+	buffer[0] = '0';
+	buffer[1] = 'x';
 
-	total_chars = (precision > num_digits) ? precision : num_digits;
-	for (i = 0; i < num_digits; i++)
-		chars_printed += _putchar(buffer[i]);
+	for (i = 0; buffer[i] != '\0'; i++)
+	{
+		_putchar(buffer[i]);
+		chars_printed++;
+	}
 
 	return (chars_printed);
 }

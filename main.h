@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -42,6 +43,7 @@ int _vprintf(const char *buf, va_list ap, int *index,
 int get_precision(const char *format, int *k);
 int get_size(unsigned int value, int precision);
 char *itoa(int i);
+int get_long_size(unsigned long value, int precision);
 
 /* Functions to print numbers */
 /* Integer numbers */
@@ -64,5 +66,6 @@ int print_octal_value(va_list ap, const char *format, int *index,
 /* Functions to print address */
 int print_address(va_list ap, const char *format, int *index,
 					int precision, int size);
+int write_pointer(void *ptr, int precision, int size);
 
 #endif
