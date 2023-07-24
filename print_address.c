@@ -52,5 +52,5 @@ int print_address(va_list ap, char *format, int *index, int precision, int size)
     for (i = 0; i < num_digits; i++)
         chars_printed += _putchar(buffer[i]);
 
-    return chars_printed;
+    return (chars_printed);
 }

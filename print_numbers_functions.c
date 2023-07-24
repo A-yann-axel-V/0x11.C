@@ -196,7 +196,7 @@ int print_hexa_value(unsigned int value, int precision, int isUpper)
         }
     }
 
-    return printed;
+    return (printed);
 }
 
 /**
@@ -221,7 +221,7 @@ int get_long_size(unsigned long value, int precision)
     // Calculate the total number of characters needed for the output
     num_chars = (precision > num_digits) ? precision : num_digits;
 
-    return num_chars;
+    return (num_chars);
 }
 
 /**
