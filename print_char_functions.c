@@ -10,7 +10,8 @@
  *
  * Return: The length of the output
  */
-int print_char(va_list ap, const char *format, int *index, int precision, int size)
+int print_char(va_list ap, const char *format, int *index,
+int precision, int size)
 {
 	char value = va_arg(ap, int);
 
@@ -32,7 +33,8 @@ int print_char(va_list ap, const char *format, int *index, int precision, int si
  *
  * Return: The length of the output
  */
-int print_string(va_list ap, const char *format, int *index, int precision, int size)
+int print_string(va_list ap, const char *format, int *index,
+int precision, int size)
 {
 	char *string = va_arg(ap, char*);
 	int i = 0;

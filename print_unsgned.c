@@ -10,7 +10,8 @@
  *
  * Return: The length of the output
  */
-int print_hexa(va_list ap, const char *format, int *index, int precision, int size)
+int print_hexa(va_list ap, const char *format, int *index, int precision,
+int size)
 {
 	unsigned int value = va_arg(ap, unsigned int);
 	int Vcase = (format[*index] == 'X') ? 0 : 1;

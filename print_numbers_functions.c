@@ -10,7 +10,8 @@
  *
  * Return: The length of the output
  */
-int print_number(va_list ap, const char *format, int *index, int precision, int size)
+int print_number(va_list ap, const char *format, int *index,
+int precision, int size)
 {
 	int k = 1, number_copy, value, printed = 0;
 	int number = va_arg(ap, int);
@@ -59,7 +60,8 @@ int print_number(va_list ap, const char *format, int *index, int precision, int 
  *
  * Return: The length of the output
  */
-int print_double(va_list ap, const char *format, int *index, int precision, int size)
+int print_double(va_list ap, const char *format, int *index,
+int precision, int size)
 {
 	double float_number = va_arg(ap, double);
 	int integer_part = (int)float_number, digit, printed = 0, n = 0;

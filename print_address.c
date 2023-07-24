@@ -15,11 +15,12 @@ int print_address(va_list ap, const char *format, int *index,
 {
 	uintptr_t ptr = (uintptr_t)va_arg(ap, void *);
 	uintptr_t temp = ptr;
-	int num_digits = 0, chars_printed = 0, total_chars, i, padding, digit;
+	int num_digits = 0, chars_printed = 0, total_chars, i, digit;
 	char *buffer;
 
 	UNUSED(format);
 	UNUSED(index);
+	UNUSED(size);
 	buffer = malloc(sizeof(char) * (num_digits + 1));
 	if (buffer == NULL)
 		return (-1);

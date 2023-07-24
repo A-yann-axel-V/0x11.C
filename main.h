@@ -21,7 +21,7 @@
 struct form_spec
 {
 	char specifier;
-	int (*fn)(va_list, char *, int*, int, int);
+	int (*fn)(va_list, const char *, int*, int, int);
 };
 
 /**
