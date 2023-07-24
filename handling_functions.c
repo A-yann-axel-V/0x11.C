@@ -65,7 +65,7 @@ int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 
 	printed = _putchar(buf[--*index]);
 	*index += 1;
-	printed = _putchar(buf[*index]);
+	printed += _putchar(buf[*index]);
 	return (printed);
 }
 

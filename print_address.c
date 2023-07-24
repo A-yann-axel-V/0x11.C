@@ -31,9 +31,9 @@ int print_address(va_list ap, const char *format, int *index,
  */
 int write_pointer(void *ptr, int precision, int size)
 {
-	char buffer[sizeof(void *) * 2 + 3];
+	char buffer[sizeof(void *) * 2];
 	unsigned long address = (unsigned long)ptr;
-	int i = sizeof(void *) * 2 + 2;
+	int i = sizeof(void *) * 2 - 2;
 	int chars_printed = 0;
 
 	UNUSED(precision);
