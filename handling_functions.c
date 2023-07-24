@@ -63,7 +63,8 @@ int _vprintf(char *buf, va_list ap, int *index, int precision, int size)
 	form_spec_t f_spec[] = {
 		{ 'c', print_char }, { 'd', print_number }, { 'i', print_number },
 		{ 'f', print_double }, { 's', print_string }, { 'x', print_hexa },
-		{ 'X', print_hexa }, { 'u', print_unsigned }, { '\0', NULL }
+		{ 'X', print_hexa }, { 'u', print_unsigned }, { 'o', print_octal_value },
+        { 'p', print_address }, { '\0', NULL }
 	};
 
 	while (f_spec[i].specifier != '\0')

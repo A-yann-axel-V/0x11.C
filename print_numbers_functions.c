@@ -170,8 +170,10 @@ int print_hexa_value(unsigned int value, int precision, int isUpper)
 	int printed = 0, i, shift, rem, precision_zeros;
     int total_num_chars = get_size(value, precision);
 
-    printed += _putchar('0');
-    printed += _putchar('x');
+    /** Print 0x at the start **
+     * printed += _putchar('0');
+     * printed += _putchar('x');
+    */
 
     if (value == 0)
         printed += _putchar('0');
@@ -244,7 +246,7 @@ int print_unsigned(va_list ap, char *format, int *index, int precision, int size
     size = get_long_size(num, precision);
     buffer = malloc((size + 1) * sizeof(char));
     if (buffer == NULL)
-        return (0);
+        return (-1);
     buffer[size] = '\0';
 
     // Convert the number to a string in decimal format.
@@ -257,6 +259,49 @@ int print_unsigned(va_list ap, char *format, int *index, int precision, int size
     }
 
     // Print the number.
+    while (*buffer)
+	{
+		_putchar(*buffer);
+		buffer++;
+	}
+
+    return (size);
+}
+
+/**
+ * print_octal_value - Print the octal value of an unsigned number.
+ * @ap: The va_list containing the unsigned number argument.
+ * @precision: The minimum number of characters to be printed.
+ * @size: The minimum size for the printed value
+ * @format: The format string (not used for hexadecimal numbers)
+ * @index: The index of the current char
+ *
+ * Return: The total number of characters printed.
+ */
+int print_octal_value(va_list ap, char *format, int *index, int precision, int size)
+{
+    unsigned long num = va_arg(ap, unsigned long);
+    char *buffer;
+    int i;
+
+    UNUSED(format);
+    UNUSED(index);
+
+    size = get_long_size(num, precision);
+    buffer = malloc((size + 1) * sizeof(char));
+    if (buffer == NULL)
+        return (-1);
+    buffer[size + 1] = '\0';
+
+    // Convert the number to a string in octal format.
+    i = size;
+    while (i >= 0 && num >= 0)
+    {
+        buffer[i] = '0' + (num & 7);
+        num >>= 3;
+        i--;
+    }
+
     while (*buffer)
 	{
 		_putchar(*buffer);

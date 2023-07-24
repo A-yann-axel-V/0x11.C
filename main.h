@@ -34,21 +34,21 @@ typedef struct form_spec form_spec_t;
 /* Our own printf function prototype */
 int _printf(char *format, ...);
 
-/* Function to print char and string */
+/* Functions to print char and string */
 int _putchar(char c);
 int print_char(va_list ap, char *format, int *index,
 int precision, int size);
 int print_string(va_list ap, char *format, int *index,
 int precision, int size);
 
-/* Function to handle format specifier */
+/* Functions to handle format specifier */
 int _vprintf(char *buf, va_list ap, int *index,
 				int precision, int size);
 int get_precision(char *format, int *k);
 int get_size(unsigned int value, int precision);
 char *itoa(int i);
 
-/* Function to print numbers */
+/* Functions to print numbers */
 /* Integer numbers */
 int print_number(va_list ap, char *format, int *index,
 					int precision, int size);
@@ -62,5 +62,12 @@ int print_hexa(va_list ap, char *format, int *index, int precision,
 /* Unsigned numbers */
 int print_unsigned(va_list ap, char *format, int *index, int precision,
 					int size);
+/* Octal numbers */
+int print_octal_value(va_list ap, char *format, int *index,
+						int precision, int size);
+
+/* Functions to print address */
+int print_address(va_list ap, char *format, int *index,
+					int precision, int size);
 
 #endif
