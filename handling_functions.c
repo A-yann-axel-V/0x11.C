@@ -57,7 +57,7 @@ int _putchar(char c)
  *
  * Return: The length of the output
  */
-int _vprintf(char *buf, va_list ap, int *index, int precision, int size)
+int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 {
 	int i = 0, printed;
 	form_spec_t f_spec[] = {
@@ -87,7 +87,7 @@ int _vprintf(char *buf, va_list ap, int *index, int precision, int size)
  *
  * Return: The number of integer
  */
-int get_precision(char *format, int *k)
+int get_precision(const char *format, int *k)
 {
 	int precision = 0;
 

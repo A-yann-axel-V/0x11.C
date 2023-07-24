@@ -8,7 +8,7 @@
  *
  * Return: Length of output
 */
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
 	int k = 0, printed = 0, precision = 0, size = 0;

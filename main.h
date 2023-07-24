@@ -32,42 +32,42 @@ typedef struct form_spec form_spec_t;
 /* Prototypes */
 
 /* Our own printf function prototype */
-int _printf(char *format, ...);
+int _printf(const char *format, ...);
 
 /* Functions to print char and string */
 int _putchar(char c);
-int print_char(va_list ap, char *format, int *index,
+int print_char(va_list ap, const char *format, int *index,
 int precision, int size);
-int print_string(va_list ap, char *format, int *index,
+int print_string(va_list ap, const char *format, int *index,
 int precision, int size);
 
 /* Functions to handle format specifier */
-int _vprintf(char *buf, va_list ap, int *index,
+int _vprintf(const char *buf, va_list ap, int *index,
 				int precision, int size);
-int get_precision(char *format, int *k);
+int get_precision(const char *format, int *k);
 int get_size(unsigned int value, int precision);
 char *itoa(int i);
 
 /* Functions to print numbers */
 /* Integer numbers */
-int print_number(va_list ap, char *format, int *index,
+int print_number(va_list ap, const char *format, int *index,
 					int precision, int size);
 /* Double numbers */
-int print_double(va_list ap, char *format, int *index,
+int print_double(va_list ap, const char *format, int *index,
 					int precision, int size);
 /* Hexadecimal numbers */
 int print_hexa_value(unsigned int value, int precision, int isUpper);
-int print_hexa(va_list ap, char *format, int *index, int precision,
+int print_hexa(va_list ap, const char *format, int *index, int precision,
 				int size);
 /* Unsigned numbers */
-int print_unsigned(va_list ap, char *format, int *index, int precision,
+int print_unsigned(va_list ap, const char *format, int *index, int precision,
 					int size);
 /* Octal numbers */
-int print_octal_value(va_list ap, char *format, int *index,
+int print_octal_value(va_list ap, const char *format, int *index,
 						int precision, int size);
 
 /* Functions to print address */
-int print_address(va_list ap, char *format, int *index,
+int print_address(va_list ap, const char *format, int *index,
 					int precision, int size);
 
 #endif

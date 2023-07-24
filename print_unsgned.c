@@ -10,7 +10,7 @@
  *
  * Return: The length of the output
  */
-int print_hexa(va_list ap, char *format, int *index, int precision, int size)
+int print_hexa(va_list ap, const char *format, int *index, int precision, int size)
 {
 	unsigned int value = va_arg(ap, unsigned int);
 	int Vcase = (format[*index] == 'X') ? 0 : 1;
@@ -98,7 +98,7 @@ int get_long_size(unsigned long value, int precision)
  *
  * Return: The total number of characters printed.
  */
-int print_unsigned(va_list ap, char *format, int *index,
+int print_unsigned(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
 	unsigned long num = va_arg(ap, unsigned long);
@@ -142,7 +142,7 @@ int print_unsigned(va_list ap, char *format, int *index,
  *
  * Return: The total number of characters printed.
  */
-int print_octal_value(va_list ap, char *format, int *index,
+int print_octal_value(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
 	unsigned long num = va_arg(ap, unsigned long);

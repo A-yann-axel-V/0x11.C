@@ -10,7 +10,7 @@
  *
  * Return: The number of characters printed.
  */
-int print_address(va_list ap, char *format, int *index,
+int print_address(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
 	uintptr_t ptr = (uintptr_t)va_arg(ap, void *);
