@@ -12,7 +12,7 @@ Prototype: int _printf(const char *format, ...);
 
 Use this to compile: `$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c`
 
-Check the folder `test` for the main.c file's test
+You can test using the main.c file
 
 # Tasks
 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
