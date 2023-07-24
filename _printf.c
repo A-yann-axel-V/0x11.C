@@ -24,10 +24,13 @@ int _printf(char *format, ...)
 				k++;
 				precision = get_precision(format, &k);
 			}
-            if (format[k] == '%')
-                printed += _putchar('%');
+			if (format[k] == '%')
+				printed += _putchar('%');
 			else
-                printed += _vprintf(format, args, &k, precision, size);
+			{
+				_vprintf(format, args, &k, precision, size);
+				printed++;
+			}
 		}
 		else
 			printed += _putchar(format[k]);
