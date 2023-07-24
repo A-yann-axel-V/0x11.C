@@ -52,5 +52,5 @@ int precision, int size)
 		i++;
 	}
 
-	return (i);
+	return (i + 1);
 }
