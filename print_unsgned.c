@@ -64,31 +64,6 @@ int print_hexa_value(unsigned int value, int precision, int isUpper)
 }
 
 /**
- * get_long_size - Calculate the minimum size for the printed value.
- * @value: The value for which to calculate the size.
- * @precision: The precision for printing (used for padding with leading zeros)
- *
- * Return: The minimum size for the printed value.
- */
-int get_long_size(unsigned long value, int precision)
-{
-	int num_digits = (value == 0) ? 1 : 0, num_chars;
-	unsigned long temp = value;
-
-	/* Calculate the number of digits in the value (in base 10) */
-	while (temp != 0)
-	{
-		num_digits++;
-		temp /= 10;
-	}
-
-	/* Calculate the total number of characters needed for the output */
-	num_chars = (precision > num_digits) ? precision : num_digits;
-
-	return (num_chars);
-}
-
-/**
  * print_unsigned - Print an unsigned number in either decimal
  * or hexadecimal format.
  * @ap: The va_list containing the unsigned number argument.

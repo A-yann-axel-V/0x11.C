@@ -37,17 +37,6 @@ char *itoa(int i)
 }
 
 /**
- * _putchar - print a char
- * @c: The char to print
- *
- * Return: The length of the output
- */
-int _putchar(char c)
-{
-	return (write(STDOUT_FILENO, &c, 1));
-}
-
-/**
  * _vprintf - replacing any format specifier in the same way as printf
  * @buf: The string formatted
  * @ap: va_list parameter
