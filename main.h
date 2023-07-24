@@ -2,14 +2,9 @@
 #define MAIN_H
 
 #include <stdarg.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stddef.h>
-#include <stdbool.h>
-#include <math.h>
-#include <limits.h>
-#include <string.h>
 
 #define UNUSED(x) (void)(x)
 
