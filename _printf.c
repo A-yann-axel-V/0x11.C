@@ -11,7 +11,7 @@
 int _printf(char *format, ...)
 {
 	va_list args;
-	int k = 0, printed = 0, precision = 2, size;
+	int k = 0, printed = 0, precision = 0, size = 0;
 
 	va_start(args, format);
 	while (format[k] != '\0')
@@ -24,7 +24,6 @@ int _printf(char *format, ...)
 				k++;
 				precision = get_precision(format, &k);
 			}
-			size = get_size(format, &k);
 			printed += _vprintf(format, args, &k, precision, size);
 		}
 		else
