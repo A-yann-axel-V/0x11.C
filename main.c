@@ -46,5 +46,7 @@ int main(void)
 	_printf("Length:[%d]\n", len + len);
 	printf("Length:[%d]\n", len + len);
 	/* printf("Unknown:[%r]\n"); */
+	_printf("%.7s", NULL);
+	printf("%.10s", NULL);
 	return (0);
 }

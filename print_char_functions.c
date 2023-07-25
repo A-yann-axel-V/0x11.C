@@ -47,8 +47,6 @@ int precision, int size)
 	if (string == NULL)
 	{
 		string = "(null)";
-		if (precision >= 6)
-			string = "      ";
 	}
 
 	while (string[len])
