@@ -66,5 +66,6 @@ int print_octal_value(va_list ap, const char *format, int *index,
 /* Functions to print address */
 int print_address(va_list ap, const char *format, int *index,
 					int precision, int size);
+int write_address(void *ptr, int precision, int size);
 
 #endif
