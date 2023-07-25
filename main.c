@@ -43,6 +43,8 @@ int main(void)
 	_printf("This is a backslash: %c\n", '\\');
 	_printf("%s\n", NULL);
 	printf("%s\n", NULL);
+	_printf("Length:[%d]\n", len + len);
+	printf("Length:[%d]\n", len + len);
 	/* printf("Unknown:[%r]\n"); */
 	return (0);
 }

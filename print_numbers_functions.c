@@ -14,13 +14,12 @@ int print_number(va_list ap, const char *format, int *index,
 int precision, int size)
 {
 	int k = 1, number_copy, value, printed = 0;
-	int number = va_arg(ap, int);
+	int number = va_arg(ap, int), len = BUFF_SIZE - *index - 1;
 
 	UNUSED(format);
-	UNUSED(precision);
 	UNUSED(index);
-	UNUSED(size);
-
+	size = get_size(number, precision);
+	number = convert_size_number(number, size);
 	if (number >= 0 && number < 10)
 		return (_putchar(number + '0'));
 
@@ -38,6 +37,12 @@ int precision, int size)
 		number_copy /= 10;
 	}
 
+	while (precision > len)
+	{
+		_putchar('0');
+		printed++;
+		len++;
+	}
 	while (k != 0)
 	{
 		value = number / k;

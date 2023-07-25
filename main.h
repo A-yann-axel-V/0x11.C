@@ -55,6 +55,7 @@ int write_unsgnd(int ind, char *buffer, int precision, int size);
 /* Integer numbers */
 int print_number(va_list ap, const char *format, int *index,
 					int precision, int size);
+long int convert_size_number(long int num, int size);
 /* Double numbers */
 int print_double(va_list ap, const char *format, int *index,
 					int precision, int size);
