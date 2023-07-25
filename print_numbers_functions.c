@@ -13,8 +13,9 @@
 int print_number(va_list ap, const char *format, int *index,
 int precision, int size)
 {
-	int k = 1, number_copy, value, printed = 0;
-	int number = va_arg(ap, int), len = BUFF_SIZE - *index - 1;
+	int k = 1, value, printed = 0, len = BUFF_SIZE - *index - 1;
+	long int number = va_arg(ap, long int);
+	unsigned long int number_copy;
 
 	UNUSED(format);
 	UNUSED(index);
