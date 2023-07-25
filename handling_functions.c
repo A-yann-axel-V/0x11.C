@@ -134,15 +134,11 @@ int get_size(unsigned int value, int precision)
 int write_unsgnd(int ind, char *buffer, int precision, int size)
 {
 	int length = BUFF_SIZE - ind - 1;
-	char padd = ' ';
 
 	UNUSED(size);
 
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0);
-
-	if (precision > 0 && precision < length)
-		padd = ' ';
 
 	while (precision > length)
 	{
