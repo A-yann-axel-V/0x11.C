@@ -33,3 +33,27 @@ long int convert_size_number(long int num, int size)
 
 	return ((int)num);
 }
+
+/**
+ * append_hex_code - Append ascii in hexadecimal code to buffer
+ * @buffer: Array of chars.
+ * @i: Index at which to start
+ * @acode: ASCII CODE.
+ *
+ * Return: Always (3)
+ */
+int append_hex_code(char acode, char buffer[], int i)
+{
+	char map_to[] = "0123456789ABCDEF";
+
+	if (acode < 0)
+		acode *= -1;
+
+	buffer[i++] = '\\';
+	buffer[i++] = 'x';
+
+	buffer[i++] = map_to[acode / 16];
+	buffer[i] = map_to[acode % 16];
+
+	return (3);
+}

@@ -73,6 +73,10 @@ int print_octal_value(va_list ap, const char *format, int *index,
 int print_binary(va_list ap, const char *format, int *index, int precision,
 					int size);
 
+/* Function to print non printable */
+int print_non_printable(va_list ap, const char *format, int *index,int precision,
+				int size);
+int append_hex_code(char acode, char buffer[], int i);
 
 /* Functions to print address */
 int print_address(va_list ap, const char *format, int *index,
