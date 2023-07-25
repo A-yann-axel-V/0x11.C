@@ -166,4 +166,4 @@ for (i = 0; str[i]; i++)
  	 	} 
  	} 
  	return (count); 
-} 
+}
