@@ -49,6 +49,9 @@ int precision, int size)
 		string = "(null)";
 	}
 
+	if (precision >= 0 && precision < len)
+		len = precision;
+
 	while (string[len])
 		len++;
 
