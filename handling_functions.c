@@ -74,7 +74,7 @@ int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 		return (printed);
 	}
 
-	return (printed);
+	return (-1);
 }
 
 /**
