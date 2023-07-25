@@ -117,7 +117,7 @@ int print_unsigned(va_list ap, const char *format, int *index,
 
 	/* Convert the number to a string in decimal format */
 	i = size - 1;
-	while (i >= 0 && num != 0)
+	while (i >= 0 && num)
 	{
 		buffer[i] = '0' + (num % 10);
 		num /= 10;
@@ -161,7 +161,7 @@ int print_octal_value(va_list ap, const char *format, int *index,
 
 	/* Convert the number to a string in octal format */
 	i = size;
-	while (i >= 0 && num >= 0)
+	while (i >= 0 && num)
 	{
 		buffer[i] = '0' + (num & 7);
 		num >>= 3;
