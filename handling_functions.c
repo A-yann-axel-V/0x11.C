@@ -48,7 +48,7 @@ char *itoa(int i)
  */
 int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 {
-	int i = 0, printed;
+	int i = 0, printed = 0;
 	form_spec_t f_spec[] = {
 		{ 'c', print_char }, { 'd', print_number }, { 'i', print_number },
 		{ 'f', print_double }, { 's', print_string }, { 'x', print_hexa },
@@ -63,9 +63,17 @@ int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 		i++;
 	}
 
-	printed = _putchar(buf[--*index]);
-	*index += 1;
-	printed += _putchar(buf[*index]);
+	if (f_spec[i].specifier == '\0')
+	{
+		if (buf[*index] == '\0')
+			return (-1);
+		printed += write(1, "%%", 1);
+		if (buf[*index - 1] == ' ')
+			printed += write(1, " ", 1);
+		printed += write(1, &buf[*index], 1);
+		return (printed);
+	}
+
 	return (printed);
 }
 
