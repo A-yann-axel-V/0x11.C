@@ -20,7 +20,18 @@ int print_address(va_list ap, const char *format, int *index,
 
 	return (write_address(ptr, precision, size));
 }
-
+/*
+ * The write_address function converts a memory address represented by a void pointer (ptr) 
+ * into a human-readable hexadecimal format and prints it to the standard output.
+ * The function takes three parameters: ptr, precision, and size.
+ * - ptr: A void pointer pointing to the memory address that needs to be printed.
+ * - precision: An integer representing the minimum number of characters to be printed.
+ *              If the hexadecimal representation of the address has fewer characters 
+ *              than the specified precision, leading zeros will be added to meet the 
+ *              precision requirement.
+ * - size: An integer indicating the size of the data pointed to by ptr. However, it is 
+ *         not used within the function.
+ */
 int write_address(void *ptr, int precision, int size)
 {
 	char buffer[sizeof(void *) * 2];
