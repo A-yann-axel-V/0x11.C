@@ -21,7 +21,7 @@ int size)
 
 /**
  * print_hexa_value - Function to print hexadecimal numbers
- * @value: The hexadecimal value to print
+ * @num: The hexadecimal value to print
  * @precision: The precision for printing (used for padding with leading zeros)
  * @isUpper: Indicates whether the hexadecimal value
  * should be uppercase or lowercase

@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * print_binary - Prints an unsigned number
+ * @ap: List of arguments
+ * @format: Buffer array to handle print
+ * @precision: Precision
+ * @size: Size specifier
+ *
+ * Return: Length of the output
+ */
 int print_binary(va_list ap, const char *format, int *index, int precision,
 					int size)
 {
