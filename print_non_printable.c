@@ -4,7 +4,7 @@ int print_non_printable(va_list ap, const char *format, int *index, int precisio
 				int size)
 {
 	int i = 0, start = 0;
-	char *str = va_arg(ap, char *), *buffer[BUFF_SIZE];
+	char *str = va_arg(ap, char *), buffer[BUFF_SIZE];
 
 	UNUSED(precision);
 	UNUSED(size);
