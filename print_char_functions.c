@@ -44,6 +44,13 @@ int precision, int size)
 	UNUSED(index);
 	UNUSED(size);
 
+	if (string == NULL)
+	{
+		string = "(null)";
+		if (precision >= 6)
+			string = "      ";
+	}
+
 	while (string[i])
 	{
 		_putchar(string[i]);
