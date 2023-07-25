@@ -8,6 +8,8 @@
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
+#define S_LONG 2
+#define S_SHORT 1
 
 /**
  * struct form_spec - Structure
@@ -30,6 +32,9 @@ typedef struct form_spec form_spec_t;
 /* Our own printf function prototype */
 int _printf(const char *format, ...);
 
+/* Utils */
+long int convert_size_unsgnd(unsigned long int num, int size);
+
 /* Functions to print char and string */
 int _putchar(char c);
 void print_buffer(char buffer[], int *buff_ind);
@@ -44,6 +49,7 @@ int _vprintf(const char *buf, va_list ap, int *index,
 int get_precision(const char *format, int *k);
 int get_size(unsigned int value, int precision);
 char *itoa(int i);
+int write_unsgnd(int ind, char *buffer, int precision, int size);
 
 /* Functions to print numbers */
 /* Integer numbers */

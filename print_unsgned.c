@@ -102,35 +102,29 @@ int get_long_size(unsigned long value, int precision)
 int print_unsigned(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
-	unsigned long num = va_arg(ap, unsigned long);
-	char *buffer;
-	int i;
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(ap, unsigned long int);
+	char buffer[BUFF_SIZE];
 
 	UNUSED(format);
 	UNUSED(index);
 
-	size = get_long_size(num, precision);
-	buffer = malloc((size + 1) * sizeof(char));
-	if (buffer == NULL)
-		return (-1);
-	buffer[size] = '\0';
+	num = convert_size_unsgnd(num, size);
 
-	/* Convert the number to a string in decimal format */
-	i = size - 1;
-	while (i >= 0 && num)
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
 	{
-		buffer[i] = '0' + (num % 10);
+		buffer[i--] = (num % 10) + '0';
 		num /= 10;
-		i--;
 	}
 
-	while (*buffer)
-	{
-		_putchar(*buffer);
-		buffer++;
-	}
+	i++;
 
-	return (size);
+	return (write_unsgnd(i, buffer, precision, size));
 }
 
 /**
@@ -146,33 +140,26 @@ int print_unsigned(va_list ap, const char *format, int *index,
 int print_octal_value(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
-	unsigned long num = va_arg(ap, unsigned long);
-	char *buffer;
-	int i;
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(ap, unsigned long int);
+	char buffer[BUFF_SIZE];
 
 	UNUSED(format);
 	UNUSED(index);
 
-	size = get_long_size(num, precision);
-	buffer = malloc((size + 1) * sizeof(char));
-	if (buffer == NULL)
-		return (-1);
-	buffer[size + 1] = '\0';
+	num = convert_size_unsgnd(num, size);
 
-	/* Convert the number to a string in octal format */
-	i = size;
-	while (i >= 0 && num)
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
 	{
-		buffer[i] = '0' + (num & 7);
-		num >>= 3;
-		i--;
+		buffer[i--] = (num % 8) + '0';
+		num /= 8;
 	}
+	i++;
 
-	while (*buffer)
-	{
-		_putchar(*buffer);
-		buffer++;
-	}
-
-	return (size);
+	return (write_unsgnd(i, buffer, precision, size));
 }
