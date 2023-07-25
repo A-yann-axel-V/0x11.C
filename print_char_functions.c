@@ -37,7 +37,7 @@ int print_string(va_list ap, const char *format, int *index,
 int precision, int size)
 {
 	char *string = va_arg(ap, char*);
-	int i = 0;
+	int len = 0;
 
 	UNUSED(format);
 	UNUSED(precision);
@@ -51,13 +51,10 @@ int precision, int size)
 			string = "      ";
 	}
 
-	while (string[i])
-	{
-		_putchar(string[i]);
-		i++;
-	}
+	while (string[len])
+		len++;
 
-	return (i);
+	return (write(1, string, len));
 }
 
 /**
