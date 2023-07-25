@@ -1,6 +1,7 @@
 #include "main.h"
 
-int print_binary(va_list ap, int precision, int size)
+int print_binary(va_list ap, const char *format, int *index, int precision,
+					int size)
 {
     unsigned int n, m, i, sum;
 	unsigned int a[32];
@@ -8,6 +9,8 @@ int print_binary(va_list ap, int precision, int size)
     char z;
 
 	UNUSED(precision);
+    UNUSED(format);
+    UNUSED(index);
 	UNUSED(size);
 
 	n = va_arg(ap, unsigned int);

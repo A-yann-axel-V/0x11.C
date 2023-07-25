@@ -69,7 +69,8 @@ int print_unsigned(va_list ap, const char *format, int *index, int precision,
 int print_octal_value(va_list ap, const char *format, int *index,
 						int precision, int size);
 /* Binary values */
-int print_binary(va_list ap, int precision, int size);
+int print_binary(va_list ap, const char *format, int *index, int precision,
+					int size);
 
 
 /* Functions to print address */
