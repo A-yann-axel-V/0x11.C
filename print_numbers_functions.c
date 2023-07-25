@@ -25,11 +25,7 @@ int precision, int size)
 		return (_putchar(number + '0'));
 
 	if (number < 0)
-	{
-		_putchar('-');
-		number *= -1;
-		printed++;
-	}
+		printed += _putchar('-'), number *= -1;
 
 	number_copy = number;
 	while (number_copy / 10 != 0)
@@ -39,20 +35,14 @@ int precision, int size)
 	}
 
 	while (precision > len)
-	{
-		_putchar('0');
-		printed++;
-		len++;
-	}
+		printed += _putchar('0'), len++;
 	while (k != 0)
 	{
 		value = number / k;
-		_putchar(value + '0');
-		printed++;
+		printed += _putchar(value + '0');
 		number %= k;
 		k /= 10;
 	}
-
 	return (printed);
 }
 
