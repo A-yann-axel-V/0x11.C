@@ -59,7 +59,7 @@ int print_number(va_list ap, const char *format, int *index,
 int print_double(va_list ap, const char *format, int *index,
 					int precision, int size);
 /* Hexadecimal numbers */
-int print_hexa_value(unsigned int value, int precision, int isUpper);
+int print_hexa_value(unsigned int num, int precision, int isUpper, int size);
 int print_hexa(va_list ap, const char *format, int *index, int precision,
 				int size);
 /* Unsigned numbers */

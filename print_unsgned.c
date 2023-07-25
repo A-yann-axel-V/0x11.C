@@ -16,9 +16,7 @@ int size)
 	unsigned int value = va_arg(ap, unsigned int);
 	int Vcase = (format[*index] == 'X') ? 0 : 1;
 
-	UNUSED(size);
-
-	return (print_hexa_value(value, precision, Vcase));
+	return (print_hexa_value(value, precision, Vcase, size));
 }
 
 /**
@@ -27,40 +25,31 @@ int size)
  * @precision: The precision for printing (used for padding with leading zeros)
  * @isUpper: Indicates whether the hexadecimal value
  * should be uppercase or lowercase
+ * @size: The minimum size for the printed value
  *
  * Return: The length of the output
  */
-int print_hexa_value(unsigned int value, int precision, int isUpper)
+int print_hexa_value(unsigned int num, int precision, int isUpper, int size)
 {
-	char hex_digit;
-	int printed = 0, i, shift, rem, precision_zeros;
-	int total_num_chars = get_size(value, precision);
+	char buffer[BUFF_SIZE];
+	int i = BUFF_SIZE - 2;
+	char *map_to = (isUpper == 0 ? "0123456789ABCDEF" : "0123456789abcdef");
 
-	/**
-     * __Print 0x at the start__
-	 * printed += _putchar('0');
-	 * printed += _putchar('x');
-	 */
+	num = convert_size_unsgnd(num, size);
 
-	if (value == 0)
-		printed += _putchar('0');
-	else
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
 	{
-		precision_zeros = (precision > total_num_chars) ?
-				(precision - total_num_chars) : 0;
-		for (i = 0; i < precision_zeros; i++)
-			printed += _putchar('0');
-		shift = (total_num_chars - 1) * 4;
-		for (i = total_num_chars - 1; i >= 0; i--)
-		{
-			rem = (value >> shift) & 0xF;
-			hex_digit = (rem < 10) ? ('0' + rem) :
-			(isUpper == 0 ? 'A' + rem - 10 : 'a' + rem - 10);
-			printed += _putchar(hex_digit);
-			shift -= 4;
-		}
+		buffer[i--] = map_to[num % 16];
+		num /= 16;
 	}
-	return (printed);
+	i++;
+
+	return (write_unsgnd(i, buffer, precision, size));
 }
 
 /**
