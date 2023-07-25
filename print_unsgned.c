@@ -98,6 +98,7 @@ int print_unsigned(va_list ap, const char *format, int *index,
 	UNUSED(format);
 	UNUSED(index);
 
+	size = get_long_size(num, precision);
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
@@ -136,6 +137,7 @@ int print_octal_value(va_list ap, const char *format, int *index,
 	UNUSED(format);
 	UNUSED(index);
 
+	size = get_long_size(num, precision);
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
