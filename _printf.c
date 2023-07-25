@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 				precision = get_precision(format, &k);
 			}
 			if (format[k] == '%')
-				printed += _putchar('%');
+				printed += write(1, "%%", 1);
 			else
 				printed += _vprintf(format, args, &k, precision, size);
 		}

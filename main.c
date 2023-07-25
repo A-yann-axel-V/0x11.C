@@ -39,8 +39,10 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	_printf("Progress: %d%%\n", 75);
-	_printf("No specifier here: %\n");
+	_printf("%No specifier here: %\n");
 	_printf("This is a backslash: %c\n", '\\');
+	_printf("%s\n", NULL);
+	printf("%s\n", NULL);
 	/* printf("Unknown:[%r]\n"); */
 	return (0);
 }
