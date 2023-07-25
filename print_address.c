@@ -25,30 +25,32 @@ int write_address(void *ptr, int precision, int size)
 {
 	char buffer[sizeof(void *) * 2];
 	unsigned long address = (unsigned long)ptr;
-    int i = sizeof(void *) * 2 - 2;
-    int chars_printed = 0, total_num_chars;
+	int i = sizeof(void *) * 2 - 2;
+	int chars_printed = 0, total_num_chars;
 
-    buffer[i] = '\0';
-    while (i > 1)
+	UNUSED(size);
+	buffer[i] = '\0';
+	while (i > 1)
 	{
-        i--;
-        buffer[i] = "0123456789abcdef"[address & 0xF];
-        address >>= 4;
-    }
+		i--;
+		buffer[i] = "0123456789abcdef"[address & 0xF];
+		address >>= 4;
+	}
 
-    buffer[0] = '0';
-    buffer[1] = 'x';
+	buffer[0] = '0';
+	buffer[1] = 'x';
 
-    total_num_chars = sizeof(void *) * 2 + 2;
-    for (i = 0; i < precision - total_num_chars; i++) {
-        putchar('0');
-        chars_printed++;
-    }
+	total_num_chars = sizeof(void *) * 2 + 2;
+	for (i = 0; i < precision - total_num_chars; i++)
+	{
+		_putchar('0');
+		chars_printed++;
+	}
 
-    for (i = 0; buffer[i] != '\0'; i++) {
-        putchar(buffer[i]);
-        chars_printed++;
-    }
-
-    return (chars_printed);
+	for (i = 0; buffer[i] != '\0'; i++)
+	{
+		_putchar(buffer[i]);
+		chars_printed++;
+	}
+	return (chars_printed);
 }
