@@ -24,7 +24,7 @@ int print_address(va_list ap, const char *format, int *index,
 }
 
 /**
- * The write_address function converts a memory address represented
+ * write_address - function converts a memory address represented
  * by a void pointer (ptr) into a human-readable hexadecimal format
  * and prints it to the standard output. The function takes three
  * parameters: ptr, precision, and size.

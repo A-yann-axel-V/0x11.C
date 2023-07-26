@@ -55,7 +55,7 @@ int _vprintf(const char *buf, va_list ap, int *index, int precision, int size)
 		{ 'X', print_hexa }, { 'u', print_unsigned }, { 'p', print_address },
 		{ 'o', print_octal_value }, { 'b', print_binary },
 		{ 'S', print_non_printable }, {'r', print_reverse},
-		{ 'R', print_rot13 }, { '\0', NULL }
+		{ 'R', print_rot13 }, { '%', print_percent }, { '\0', NULL }
 	};
 
 	while (f_spec[i].specifier != '\0')

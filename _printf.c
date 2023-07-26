@@ -25,17 +25,12 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 			k++;
-			if (format[k] == '%')
-				printed += write(1, "%%", 1);
-			else
+			if (format[k] == '.')
 			{
-				if (format[k] == '.')
-				{
-					k++;
-					precision = get_precision(format, &k);
-				}
-				printed += _vprintf(format, args, &k, precision, size);
+				k++;
+				precision = get_precision(format, &k);
 			}
+			printed += _vprintf(format, args, &k, precision, size);
 		}
 		else
 		{

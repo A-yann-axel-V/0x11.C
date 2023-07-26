@@ -43,6 +43,10 @@ int precision, int size);
 int print_string(va_list ap, const char *format, int *index,
 int precision, int size);
 
+/* Print percent */
+int print_percent(va_list ap, const char *format, int *index,
+			int precision, int size);
+
 /* Functions to handle format specifier */
 int _vprintf(const char *buf, va_list ap, int *index,
 				int precision, int size);

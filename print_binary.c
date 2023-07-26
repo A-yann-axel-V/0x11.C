@@ -4,6 +4,7 @@
  * print_binary - Prints an unsigned number
  * @ap: List of arguments
  * @format: Buffer array to handle print
+ * @index: The index of the current char
  * @precision: Precision
  * @size: Size specifier
  *
