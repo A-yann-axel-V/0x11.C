@@ -33,8 +33,8 @@ int main(void)
 	len2 = printf("String:[%s]\n", "cyc fcfc ggs");
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
-	_printf("Address:[%p]\n", NULL);
-	printf("Address:[%p]\n", NULL);
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);

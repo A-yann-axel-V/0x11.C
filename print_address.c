@@ -66,10 +66,8 @@ int write_address(void *ptr, int precision, int size)
 		chars_printed++;
 	}
 
-	for (i = 0; buffer[i] != '\0'; i++)
-	{
-		_putchar(buffer[i]);
-		chars_printed++;
-	}
-	return (chars_printed);
+	for (i = 0; buffer[i]; i++)
+	;
+
+	return (write(1, &buffer, i));
 }
