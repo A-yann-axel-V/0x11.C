@@ -73,6 +73,14 @@ int print_octal_value(va_list ap, const char *format, int *index,
 int print_binary(va_list ap, const char *format, int *index, int precision,
 					int size);
 
+/* Print reverse */
+int print_reverse(va_list ap, const char *format, int *index, int precision,
+					int size);
+
+/* Print rot13 string */
+int print_rot13(va_list ap, const char *format, int *index, int precision,
+					int size);
+
 /* Function to print non printable */
 int print_non_printable(va_list ap, const char *format, int *index,
 			int precision, int size);

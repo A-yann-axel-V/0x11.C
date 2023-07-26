@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * print_non_printable - Prints ascii codes in hexa of non printable chars
+ * @ap: List of arguments
+ * @format: Buffer array to handle print
+ * @index: The index of the current char
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
+ */
 int print_non_printable(va_list ap, const char *format, int *index,
 			int precision, int size)
 {
