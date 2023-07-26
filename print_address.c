@@ -17,6 +17,8 @@ int print_address(va_list ap, const char *format, int *index,
 
 	UNUSED(format);
 	UNUSED(index);
+	if (ptr == NULL)
+		return (write(1, "0x0", 3));
 
 	return (write_address(ptr, precision, size));
 }
@@ -40,18 +42,18 @@ int print_address(va_list ap, const char *format, int *index,
  */
 int write_address(void *ptr, int precision, int size)
 {
-	char buffer[sizeof(void *) * 2];
+	char buffer[BUFF_SIZE];
 	unsigned long address = (unsigned long)ptr;
-	int i = sizeof(void *) * 2 - 2;
+	int i = BUFF_SIZE - 2;
 	int chars_printed = 0, total_num_chars;
 
 	UNUSED(size);
-	buffer[i] = '\0';
-	while (i > 1)
+	buffer[BUFF_SIZE - 1] = '\0';
+	while (address > 0)
 	{
 		i--;
 		buffer[i] = "0123456789abcdef"[address & 0xF];
-		address >>= 4;
+		address /= 16;
 	}
 
 	buffer[0] = '0';
@@ -64,7 +66,7 @@ int write_address(void *ptr, int precision, int size)
 		chars_printed++;
 	}
 
-	for (i = 0; buffer[i] != '\0'; i++)
+	for (i = 0; buffer[i]; i++)
 	{
 		_putchar(buffer[i]);
 		chars_printed++;
