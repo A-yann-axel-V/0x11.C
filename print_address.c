@@ -61,13 +61,10 @@ int write_address(void *ptr, int precision, int size)
 
 	total_num_chars = sizeof(void *) * 2 + 2;
 	for (i = 0; i < precision - total_num_chars; i++)
-	{
-		_putchar('0');
-		chars_printed++;
-	}
+		chars_printed += _putchar('0');
 
 	for (i = 0; buffer[i]; i++)
 	;
 
-	return (write(1, &buffer, i));
+	return (write(1, &buffer, i + chars_printed));
 }
