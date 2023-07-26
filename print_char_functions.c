@@ -52,7 +52,7 @@ int precision, int size)
 	while (string[len])
 		len++;
 
-	if (precision >= 0 && precision < len)
+	if (precision > 0 && precision < len)
 		len = precision;
 
 	return (write(1, string, len));
