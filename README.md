@@ -16,7 +16,7 @@ You can test using the main.c file
 
 # Tasks
 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
-mandatory
+*mandatory*
 Write a function that produces output according to a format.
 Returns: the number of characters printed (excluding the null byte used to end output to strings)
 write output to stdout, the standard output stream
@@ -24,9 +24,15 @@ format is a character string. The format string is composed of zero or more dire
 c
 s
 %
+**NOTE**: 99%, One check failed
 
 1. Education is when you read the fine print. Experience is what you get if you don't
-mandatory
+*mandatory*
 Handle the following conversion specifiers:
 d
 i
+**NOTE**: 100%, All done
+
+# Collab:
+Maxwell Arthur & Adjumany Yann
+**FYI**: We got 153%
